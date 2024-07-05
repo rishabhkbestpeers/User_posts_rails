@@ -1,0 +1,21 @@
+<h1>Student</h1>
+
+<ul>
+  <% @students.each do |student| %>
+    <h2>  
+    <strong>Id :</strong> <%= student.id %>
+    </h2>
+  <li>
+  <p>
+    <strong>Name :</strong> <%= student.name %>
+  </p>
+  </li>
+  <li>
+  <p>
+    <strong>Roll Number :</strong> <%= student.rollno %>
+  </p>
+    </li>
+    <%= link_to "Show" , student_path(student.id) %>
+  <% end %>
+</ul>
+<h1><%= cookies[:name] %> </h1>

@@ -1,0 +1,14 @@
+<h1 class="d-flex m-3 p-3 align-items-center justify-content-center">Post Details </h1>
+<div class="card text-center">
+  <h2 class="card-header">
+    <strong>Title : </strong><%= @post.title %>
+  </h2>
+  <div class="card-body">
+    <h3 class="card-text m-3 p-3"><strong> Description : </strong> <%= @post.description %></h3>
+    <a href="<%= @post.id %>/edit" class="btn btn-primary m-4"> Edit </a>
+    <a href="/posts/<%= @post.id %>" data-method="delete" class="btn btn-primary m-4 ">Delete</a>
+  </div>
+  <div class="card-footer text-body-secondary">
+    <p>Created at : <%=@post.created_at %></p>
+  </div>
+</div>

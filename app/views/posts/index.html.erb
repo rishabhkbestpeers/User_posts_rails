@@ -1,0 +1,25 @@
+<div class="d-flex align-items-center justify-content-center">
+  <% if Current.user %>
+    <p class="p-4 m-4"><strong>User name : </strong> <%= Current.user.email %> </p> 
+  <% end %>
+  <%= button_to "Logout", log_out_path, method: :delete %>  
+</div>
+<div class="d-flex align-items-center justify-content-center">
+  <p class="p-4 m-4"><strong>Add new Post</strong></p>
+  <a class="btn btn-success" href="/posts/new" role="button">Add Post</a>
+</div>
+
+<div class="d-flex ">
+<% @post.each do |pst| %>
+    <div class="card p-3 m-3" style="width: 18rem;">
+     <div class="card-body">
+       <h4 class="card-title text-success">Post Id : <strong><%= pst.id %></strong></h4>
+       <h5 class="card-title"><strong>Title : </strong><%= pst.title %></h5>
+    
+      <p class="card-text"><strong>Description : </strong><%= pst.description %></p>
+
+      <a href="/posts/<%= pst.id %>" class="card-link">Details</a>
+     </div>
+    </div>
+<% end %>
+</div>

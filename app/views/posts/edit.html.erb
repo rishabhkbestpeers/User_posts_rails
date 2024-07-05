@@ -1,0 +1,14 @@
+<h1> Edit Form </h1>
+<%= form_with model: @post, url: posts_path  do |form| %>
+    <div class="mb-3">
+    <%= form.label :titile %>
+    <%= form.text_field :title, class: "form-control", placeholder: "title" %>
+    </div>
+    <div class="mb-3">
+    <%= form.label :Description %>
+    <%= form.text_field :description, class: "form-control", placeholder: "Description" %>
+    </div>
+    <div class="mb-3">
+    <%= form.submit "Edit", class:"btn btn-primary" %>
+    </div>
+<% end %>

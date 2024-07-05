@@ -1,0 +1,19 @@
+<h1> Index page </h1>
+<ul>
+<% @articles.each do |article| %>
+    <h2>
+    <strong>Id :</strong> <%= article.id %>
+    </h2>
+  <li>
+  <p>
+    <strong>Title :</strong> <%= article.title %>
+  </p>
+  </li>
+  <li>
+  <p>
+    <strong>Description :</strong> <%= article.description %>
+  </p>
+</li>
+
+<% end %>
+</ul>
