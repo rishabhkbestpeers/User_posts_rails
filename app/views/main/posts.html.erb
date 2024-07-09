@@ -1,0 +1,12 @@
+<h1>All Posts </h1>
+<div class="d-flex">
+<% @posts.each do |pst| %>
+    <div class="card p-3 m-3" style="width: 18rem;">
+     <div class="card-body">
+       <h4 class="card-title text-success">Post Id : <strong><%= pst.id %></strong></h4>
+       <h5 class="card-title"><strong>Title : </strong><%= pst.title %></h5>
+       <p class="card-text"><strong>Description : </strong><%= pst.description %></p>
+     </div>
+    </div>
+<% end %>
+</div>

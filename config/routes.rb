@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'comments/new'
  
   # {  for login }
   get "about", to: "about#index"
@@ -6,15 +7,17 @@ Rails.application.routes.draw do
   get "sign_up", to: "registrations#new"
   post "sign_up", to: "registrations#create"
   
-  resources :posts
-
+  
+  resources :posts do
+    resources :comments
+  end
 
   get "sign_in", to: "sessions#new"
   post "sign_in", to: "sessions#create"
 
   delete "log_out", to: "sessions#destroy"
 
-  root to: "main#index"   
+  root to: "main#index"
 
   # get "/students/:id", to: 'article#show'
   

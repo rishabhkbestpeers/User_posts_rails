@@ -1,14 +1,30 @@
 <h1 class="d-flex m-3 p-3 align-items-center justify-content-center">Post Details </h1>
 <div class="card text-center">
+
   <h2 class="card-header">
     <strong>Title : </strong><%= @post.title %>
   </h2>
   <div class="card-body">
     <h3 class="card-text m-3 p-3"><strong> Description : </strong> <%= @post.description %></h3>
     <a href="<%= @post.id %>/edit" class="btn btn-primary m-4"> Edit </a>
-    <a href="/posts/<%= @post.id %>" data-method="delete" class="btn btn-primary m-4 ">Delete</a>
+    <%= link_to "Destroy", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } , class:"btn btn-primary m-4" %>
+    <a href="<%= @post.id %>/comments/new" class="btn btn-primary m-4"> Add Comment</a>
   </div>
+  
   <div class="card-footer text-body-secondary">
-    <p>Created at : <%=@post.created_at %></p>
+  <h3>Comments : </h3>
+  <div class="d-flex ">
+  <% @comments.each do |comment| %>
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h6 class="card-title text-primary">Comment id : <%= comment.id %> </h6>
+      <p class="card-text">: <%= comment.body %></p>
+      <a href="/posts/<%= comment.post_id%>/comments/<%= comment.id%>/edit" class="card-link text-success">Edit</a>
+      <%= link_to "Delete",post_comment_path(comment.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } , class:"card-link text-danger" %>
+    </div>
+   </div>
+  <% end %>
   </div>
+  </div>
+
 </div>
